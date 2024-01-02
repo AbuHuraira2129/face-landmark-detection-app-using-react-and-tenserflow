@@ -1,4 +1,6 @@
-# Getting Started with this App
+# Getting Started with this App 
+
+### Just Optimized for Desktop view
 
 ## Available Scripts
 
