@@ -1,11 +1,22 @@
 import "./App.css";
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as facemesh from "@tensorflow-models/facemesh";
 import Webcam from "react-webcam";
 import { drawMesh } from "./utilities";
 
 function App() {
+
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 600px)").matches
+  )
+
+  useEffect(() => {
+    window
+    .matchMedia("(min-width: 600px)")
+    .addEventListener('change', e => setMatches( e.matches ));
+  }, []);
+
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -67,7 +78,8 @@ function App() {
         <canvas
          className="webcam"
           ref={canvasRef}
-          style={{
+          style={
+            {
             position: "absolute",
             marginLeft: "auto",
             marginRight: "auto",
