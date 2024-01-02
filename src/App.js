@@ -6,17 +6,7 @@ import Webcam from "react-webcam";
 import { drawMesh } from "./utilities";
 
 function App() {
-
-  const [matches, setMatches] = useState(
-    window.matchMedia("(min-width: 600px)").matches
-  )
-
-  useEffect(() => {
-    window
-    .matchMedia("(min-width: 600px)")
-    .addEventListener('change', e => setMatches( e.matches ));
-  }, []);
-
+  
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
